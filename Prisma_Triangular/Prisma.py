@@ -169,7 +169,7 @@ def main():
             calcular_desvios_padrao_prisma()
 
         elif opcao == "c":
-            cleanTxt()
+            clean_txt()
 
         elif opcao == "q":
             break
