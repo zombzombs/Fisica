@@ -19,7 +19,7 @@ def menu():
     => """
     return input(textwrap.dedent(menu))
 
-def calcularVolume():
+def calcular_volume_cilindro():
     h = float(input("Insira a altura: "))
     d = float(input("Insira o diametro: "))
 
@@ -126,7 +126,7 @@ def calcular_desvios_padrao():
             f"Desvio padrão Volume: {desvio_padrao_volume}\n"
         )
 
-def cleanTxt():
+def clean_txt():
     confirmacao = input("Tem certeza que deseja limpar o arquivo (S/N)? ").lower()
     if confirmacao == 's':
         open(ROOT_PATH / 'historicoCilindro.txt', 'w').close()
@@ -139,7 +139,7 @@ def main():
         opcao = menu()
 
         if opcao == "v":
-            calcularVolume()
+            calcular_volume_cilindro()
         elif opcao == "m":
             calcular_media_menu()
 
@@ -147,7 +147,7 @@ def main():
             calcular_desvios_padrao()
         
         elif opcao == "c":
-            cleanTxt()
+            clean_txt()
         
         elif opcao == "q":
             break
