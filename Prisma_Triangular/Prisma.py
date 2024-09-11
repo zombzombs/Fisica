@@ -1,9 +1,10 @@
-
-import textwrap
 import math
+import os
+import textwrap
 from pathlib import Path
 
-ROOT_PATH = Path(__file__).parent
+ROOT_PATH = Path(os.getcwd())
+
 
 def menu():
     menu = """\n
@@ -27,11 +28,9 @@ def calcular_volume_prisma():
 
     v = (b * h * c) / 2
     print(f"Volume do prisma triangular: {v}")
-    
+
     with open(ROOT_PATH / "historicoPrisma.txt", "a") as arquivo:
-        arquivo.write(
-            f"Altura :{h}\tBase :{b}\tComprimento :{c}\tVolume :{v}\n"
-        )
+        arquivo.write(f"Altura :{h}\tBase :{b}\tComprimento :{c}\tVolume :{v}\n")
 
 
 def ler_dados():
@@ -39,45 +38,46 @@ def ler_dados():
     bases = []
     comprimentos = []
     volumes = []
-    
+
     # Abrir o arquivo de histórico
     with open(ROOT_PATH / "historicoPrisma.txt", "r") as arquivo:
         for linha in arquivo:
             # Ignorar linhas que contêm "Media" ou "Desvio"
             if "Media" in linha or "Desvio" in linha:
                 continue
-            
+
             # Separar os campos da linha
             partes = linha.split("\t")
-            
+
             # Extrair altura, base, comprimento e volume
             altura_str = partes[0].split(":")[1].strip()
             base_str = partes[1].split(":")[1].strip()
             comprimento_str = partes[2].split(":")[1].strip()
             volume_str = partes[3].split(":")[1].strip()
-            
+
             # Converter strings para float e adicionar às respectivas listas
             alturas.append(float(altura_str))
             bases.append(float(base_str))
             comprimentos.append(float(comprimento_str))
             volumes.append(float(volume_str))
-    
+
     return alturas, bases, comprimentos, volumes
 
 
 def calcular_media_prisma(tipo_media):
     alturas, bases, comprimentos, volumes = ler_dados()
-    
-    if tipo_media == 'altura':
+
+    if tipo_media == "altura":
         return sum(alturas) / len(alturas) if alturas else 0
-    elif tipo_media == 'base':
+    elif tipo_media == "base":
         return sum(bases) / len(bases) if bases else 0
-    elif tipo_media == 'comprimento':
+    elif tipo_media == "comprimento":
         return sum(comprimentos) / len(comprimentos) if comprimentos else 0
-    elif tipo_media == 'volume':
+    elif tipo_media == "volume":
         return sum(volumes) / len(volumes) if volumes else 0
     else:
         return "Opção inválida!"
+
 
 def calcular_media_menu():
     print("\nEscolha qual média deseja calcular:")
@@ -85,16 +85,16 @@ def calcular_media_menu():
     print("2 - Base")
     print("3 - Comprimento")
     print("4 - Volume")
-    
+
     opcao = input("Digite o número da opção: ")
-    
+
     if opcao in ["1", "2", "3", "4"]:
         # Calcular todas as médias
-        media_altura = calcular_media_prisma('altura')
-        media_base = calcular_media_prisma('base')
-        media_comprimento = calcular_media_prisma('comprimento')
-        media_volume = calcular_media_prisma('volume')
-        
+        media_altura = calcular_media_prisma("altura")
+        media_base = calcular_media_prisma("base")
+        media_comprimento = calcular_media_prisma("comprimento")
+        media_volume = calcular_media_prisma("volume")
+
         # Salvar todas as médias no arquivo
         with open(ROOT_PATH / "historicoPrisma.txt", "a") as arquivo:
             arquivo.write(
@@ -136,7 +136,7 @@ def calcular_desvios_padrao_prisma():
     print(f"Desvio padrão das bases: {desvio_padrao_base}")
     print(f"Desvio padrão dos comprimentos: {desvio_padrao_comprimento}")
     print(f"Desvio padrão dos volumes: {desvio_padrao_volume}")
-    
+
     with open(ROOT_PATH / "historicoPrisma.txt", "a") as arquivo:
         arquivo.write(
             f"Desvio padrão Altura: {desvio_padrao_altura}\t"
@@ -148,8 +148,8 @@ def calcular_desvios_padrao_prisma():
 
 def clean_txt():
     confirmacao = input("Tem certeza que deseja limpar o arquivo (S/N)? ").lower()
-    if confirmacao == 's':
-        open(ROOT_PATH / 'historicoPrisma.txt', 'w').close()
+    if confirmacao == "s":
+        open(ROOT_PATH / "historicoPrisma.txt", "w").close()
         print("Arquivo limpo com sucesso!")
     else:
         print("Operação cancelada.")
