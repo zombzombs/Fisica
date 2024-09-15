@@ -2,6 +2,9 @@ import math
 import os
 import textwrap
 from pathlib import Path
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
 
 ROOT_PATH = Path(os.getcwd())
 PI = 3.14
@@ -13,7 +16,7 @@ def menu():
     [v]\tCalcular Volume
     [m]\tCalcular Media
     [d]\tCalcular Desvio Padrão
-    
+    [g]\tGerar Gráfico de Distribuição Normal dos Volumes
     [c]\tLimpar TXT
 
     [q]\tSair
@@ -133,6 +136,30 @@ def calcular_desvios_padrao():
             f"Desvio padrão Volume: {desvio_padrao_volume}\n"
         )
 
+def gerar_grafico_distribuicao_normal(volumes):
+    # Calcula a média e o desvio padrão dos volumes
+    media = np.mean(volumes)
+    desvio_padrao = np.std(volumes)
+
+    # Cria os dados para o gráfico de distribuição normal
+    x = np.linspace(min(volumes), max(volumes), 100)
+    y = norm.pdf(x, media, desvio_padrao)
+
+    # Plota o gráfico
+    plt.plot(x, y, label='Distribuição Normal')
+    plt.hist(volumes, bins=10, density=True, alpha=0.6, color='g', label='Volumes')
+
+    # Adiciona título e labels
+    plt.title('Distribuição Normal dos Volumes do Cilindro')
+    plt.xlabel('Volume')
+    plt.ylabel('Frequência')
+
+    # Exibe a legenda
+    plt.legend()
+
+    # Mostra o gráfico
+    plt.show()
+
 
 def clean_txt():
     confirmacao = input("Tem certeza que deseja limpar o arquivo (S/N)? ").lower()
@@ -155,6 +182,12 @@ def main():
         elif opcao == "d":
             calcular_desvios_padrao()
 
+        elif opcao == "g":
+            alturas, diametros, volumes = ler_dados()
+            if volumes:
+                gerar_grafico_distribuicao_normal(volumes)
+            else:
+                print("Não há volumes suficientes para gerar o gráfico.")
         elif opcao == "c":
             clean_txt()
 

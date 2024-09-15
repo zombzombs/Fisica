@@ -41,6 +41,8 @@ O arquivo `historicoCilindro.txt` é utilizado para armazenar:
     - `[v]` - Calcular Volume: Solicita a altura e o diâmetro do cilindro, calcula o volume e salva no arquivo de histórico.
     - `[m]` - Calcular Média: Permite escolher entre calcular a média das alturas, diâmetros ou volumes.
     - `[d]` - Calcular Desvio Padrão: Calcula e exibe o desvio padrão das alturas, diâmetros e volumes.
+    - `[g]`  - Gerar Gráfico de Distribuição Normal: Gera um gráfico que mostra a Distribuição Normal
+
     - `[c]` - Limpar TXT: Limpa o conteúdo do arquivo de histórico após confirmação.
     - `[q]` - Sair: Encerra o programa.
 
@@ -66,6 +68,9 @@ Calcula e exibe o desvio padrão das alturas, diâmetros e volumes, e salva no a
 
 ### `clean_txt()`
 Limpa o conteúdo do arquivo `historicoCilindro.txt` após confirmação do usuário.
+
+### `gerar_grafico_distribuicao_normal()`
+Gera um gráfico que mostra a distribuição normal.
 
 ## Requisitos
 
@@ -112,6 +117,7 @@ O arquivo `historicoPrisma.txt` é utilizado para armazenar:
     - `[v]` - Calcular Volume do Prisma: Solicita a altura, a base e o comprimento do prisma, calcula o volume e salva no arquivo de histórico.
     - `[m]` - Calcular Média: Permite escolher entre calcular a média das alturas, bases, comprimentos ou volumes.
     - `[d]` - Calcular Desvio Padrão: Calcula e exibe o desvio padrão das alturas, bases, comprimentos e volumes.
+    - `[g]`  - Gerar Gráfico de Distribuição Normal: Gera um gráfico que mostra a Distribuição Normal
     - `[c]` - Limpar TXT: Limpa o conteúdo do arquivo de histórico após confirmação.
     - `[q]` - Sair: Encerra o programa.
 
@@ -138,5 +144,5 @@ Calcula e exibe o desvio padrão das alturas, bases, comprimentos e volumes, e s
 ### `clean_txt()`
 Limpa o conteúdo do arquivo `historicoPrisma.txt` após confirmação do usuário.
 
-# Todo
-Adicionar uma função que gere um gráfico que represente a distribuição normal.
+### `gerar_grafico_distribuicao_normal()`
+Gera um gráfico que mostra a distribuição normal.
