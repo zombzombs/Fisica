@@ -14,6 +14,31 @@ Este programa foi desenvolvido para calcular o volume de um cilindro e realizar 
 4. **Limpar Histórico**: Apague o conteúdo do arquivo de histórico.
 5. **Sair do Programa**: Encerre a execução do programa.
 
+## Para usar Siga esses Passos
+1. **Clone o Repositorio**
+    ```sh
+    git clone https://github.com/rickrocca/Fisica.git
+    ```
+2. **Crie um ambiente virtual**
+    ```sh
+    virtualenv ENV
+    ```
+
+3. **Ative o Ambiente**
+    
+    Linux/Mac
+    ```bash
+    ENV/bin/activate
+    ```
+    Windows
+     ```bash
+    ENV/Scripts/activate
+    ```
+4. **Instale as dependencias**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
 ## Arquivo de Histórico
 
 O arquivo `historicoCilindro.txt` é utilizado para armazenar:
@@ -23,21 +48,17 @@ O arquivo `historicoCilindro.txt` é utilizado para armazenar:
 
 ## Como Utilizar
 
-1. **Clone o Repositorio**
-    ```sh
-    git clone https://github.com/rickrocca/Fisica.git
-    ```
-2. **Navegue até o diretório do projeto**
+1. **Navegue até o diretório do projeto**
     ```sh
     cd Fisica/Cilindro
     ```
 
-3. **Executar o Programa**: Execute o script Python utilizando o seguinte comando:
+2. **Executar o Programa**: Execute o script Python utilizando o seguinte comando:
     ```bash
     python Cilindro.py
     ```
 
-4. **Menu de Opções**: O programa oferece um menu interativo com as seguintes opções:
+3. **Menu de Opções**: O programa oferece um menu interativo com as seguintes opções:
     - `[v]` - Calcular Volume: Solicita a altura e o diâmetro do cilindro, calcula o volume e salva no arquivo de histórico.
     - `[m]` - Calcular Média: Permite escolher entre calcular a média das alturas, diâmetros ou volumes.
     - `[d]` - Calcular Desvio Padrão: Calcula e exibe o desvio padrão das alturas, diâmetros e volumes.
@@ -100,20 +121,17 @@ O arquivo `historicoPrisma.txt` é utilizado para armazenar:
 - Desvios padrão das alturas, bases, comprimentos e volumes.
 
 ## Como Utilizar
-1. **Clone o Repositorio**
-    ```sh
-    git clone https://github.com/rickrocca/Fisica.git
-    ```
-2. **Navegue até o diretório do projeto**
+
+1. **Navegue até o diretório do projeto**
     ```sh
     cd Fisica/Prisma_Triangular
     ```
-3. **Executar o Programa**: Execute o script Python utilizando o seguinte comando:
+2. **Executar o Programa**: Execute o script Python utilizando o seguinte comando:
     ```bash
     python Prisma.py
     ```
 
-4. **Menu de Opções**: O programa oferece um menu interativo com as seguintes opções:
+3. **Menu de Opções**: O programa oferece um menu interativo com as seguintes opções:
     - `[v]` - Calcular Volume do Prisma: Solicita a altura, a base e o comprimento do prisma, calcula o volume e salva no arquivo de histórico.
     - `[m]` - Calcular Média: Permite escolher entre calcular a média das alturas, bases, comprimentos ou volumes.
     - `[d]` - Calcular Desvio Padrão: Calcula e exibe o desvio padrão das alturas, bases, comprimentos e volumes.

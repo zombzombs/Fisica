@@ -2,6 +2,7 @@ import math
 import os
 import textwrap
 from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import norm
@@ -136,6 +137,7 @@ def calcular_desvios_padrao():
             f"Desvio padrão Volume: {desvio_padrao_volume}\n"
         )
 
+
 def gerar_grafico_distribuicao_normal(volumes):
     # Calcula a média e o desvio padrão dos volumes
     media = np.mean(volumes)
@@ -146,13 +148,13 @@ def gerar_grafico_distribuicao_normal(volumes):
     y = norm.pdf(x, media, desvio_padrao)
 
     # Plota o gráfico
-    plt.plot(x, y, label='Distribuição Normal')
-    plt.hist(volumes, bins=10, density=True, alpha=0.6, color='g', label='Volumes')
+    plt.plot(x, y, label="Distribuição Normal")
+    plt.hist(volumes, bins=10, density=True, alpha=0.6, color="g", label="Volumes")
 
     # Adiciona título e labels
-    plt.title('Distribuição Normal dos Volumes do Cilindro')
-    plt.xlabel('Volume')
-    plt.ylabel('Frequência')
+    plt.title("Distribuição Normal dos Volumes do Cilindro")
+    plt.xlabel("Volume")
+    plt.ylabel("Frequência")
 
     # Exibe a legenda
     plt.legend()
